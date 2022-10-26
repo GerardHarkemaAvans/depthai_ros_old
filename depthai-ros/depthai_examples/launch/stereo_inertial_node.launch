@@ -12,12 +12,12 @@
     <arg name="parent_frame"         default="oak-d-base-frame" />
     <arg name="imuMode"              default="1"                />   <!-- 0 -> COPY, 1 -> LINEAR_INTERPOLATE_GYRO, 2 -> LINEAR_INTERPOLATE_ACCEL -->
 
-    <arg name="cam_pos_x"             default="0.0" /> <!-- Position respect to base frame (i.e. "base_link) -->
+    <arg name="cam_pos_x"             default="0.15" /> <!-- Position respect to base frame (i.e. "base_link) -->
     <arg name="cam_pos_y"             default="0.0" /> <!-- Position respect to base frame (i.e. "base_link) -->
     <arg name="cam_pos_z"             default="0.6" /> <!-- Position respect to base frame (i.e. "base_link) -->
     <arg name="cam_roll"              default="3.14" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
     <arg name="cam_pitch"             default="1.57" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
-    <arg name="cam_yaw"               default="0.0" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
+    <arg name="cam_yaw"               default="3.14" /> <!-- Orientation respect to base frame (i.e. "base_link) -->
 
     <arg name="lrcheck"               default="true" />
     <arg name="extended"              default="false"/>
@@ -63,7 +63,8 @@
     <arg name="dotProjectormA"        default="200.0"/>
     <arg name="floodLightmA"          default="200.0"/>
     <arg name="enableRviz"            default="true"/>
-    <arg name="enableMarkerPublish"   default="false" />
+    <arg name="enableMarkerPublish"   default="true" />
+    <arg name="enableTf2Publish"      default="true" />
 
     <include file="$(find depthai_bridge)/launch/urdf.launch">
         <arg name="base_frame"      value="$(arg  base_frame)"  />
@@ -154,6 +155,9 @@
     <node if="$(eval arg('enableMarkerPublish') == true)" type="markerPublisher.py" name="markerPublisher" pkg="depthai_examples">
         <remap from="spatialDetections" to="/stereo_inertial_publisher/color/yolov4_Spatial_detections"/>
         <remap from="spatialDetectionMarkers" to="/stereo_inertial_publisher/color/spatialDetectionMarkers"/>
+    </node>
+
+    <node if="$(eval arg('enableTf2Publish') == true)" type="convert_detections_to_tf2.py" name="tf2Publisher" pkg="depthai_examples">
     </node>
 
   <group if="$(eval arg('enableRviz') == true)">

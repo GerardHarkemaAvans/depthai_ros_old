@@ -234,6 +234,8 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        frisbee:
+          Value: true
         oak-d-base-frame:
           Value: true
         oak-d_frame:
@@ -271,6 +273,8 @@ Visualization Manager:
               oak_left_camera_optical_frame:
                 {}
             oak_model_origin:
+              frisbee:
+                {}
               orange:
                 {}
             oak_rgb_camera_frame:
@@ -309,7 +313,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.9235453009605408
+      Distance: 1.6089181900024414
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -325,9 +329,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.9803975224494934
+      Pitch: 0.6753975749015808
       Target Frame: <Fixed Frame>
-      Yaw: 3.092200756072998
+      Yaw: 0.3072008490562439
     Saved: ~
 Window Geometry:
   Camera:
