@@ -33,7 +33,7 @@ class ConvertDetectionToTf2:
         for spatialMsg in spatialMsgArray.detections:
             rospy.loginfo(f'Product: {label_map[spatialMsg.results[0].id]})#, score: nog niet berekend')#{label_map[spatialMsg.results[0].score]:.3f}
 
-            broadcaster = tf2_ros.StaticTransformBroadcaster()
+            broadcaster = tf2_ros.TransformBroadcaster()
             static_transformStamped = geometry_msgs.msg.TransformStamped()
 
             static_transformStamped.header.stamp = rospy.Time.now()
